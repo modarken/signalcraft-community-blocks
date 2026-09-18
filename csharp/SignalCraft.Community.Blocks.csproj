@@ -44,6 +44,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- THE SAME NAMES SignalCraft PUTS IN SCOPE FOR A BLOCK COMPILED FROM
+         SOURCE. A block in blocks/ has no `using` lines, because the script
+         compiler prepends these before compiling it - so the file reads as the
+         block and nothing else.
+
+         An ordinary project does not do that, and without these lines the very
+         same file fails to compile here with eight "type or namespace not
+         found" errors. That is the one thing publishing a library BOTH ways
+         does not get for free, and it is four lines.
+
+         Keep this list matching SignalCraft.Scripting's ImplicitUsingNamespaces
+         or the two routes stop compiling the same source. -->
+    <Using Include="System" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="SignalCraft.Core" />
+    <Using Include="SignalCraft.Hosting" />
+  </ItemGroup>
+
+  <ItemGroup>
     <!-- A block derives from BlockBase and implements IHostedBlock, both from
          the SignalCraft SDK. Version it against the SDK you built for. -->
     <PackageReference Include="SignalCraft.Hosting" Version="[0.1.0]" />

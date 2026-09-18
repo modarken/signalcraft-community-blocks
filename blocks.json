@@ -1,13 +1,57 @@
 {
   "catalog_version": "1.0",
   "generated_by": "hand-written; the same format `signalcraft catalog` writes",
-  "note": "The C++ blocks this library ships. C# blocks need no entry here - the studio compiles their source and reads what the class declares. Nothing can ask a compiled C++ binary what it contains, so that half is written down. The `cpp` object is what `signalcraft build --emit cpp` needs to construct the block: the class to make and the header to include.",
+  "note": "Every block this library ships that SignalCraft cannot work out for itself. The C++ one is here because nothing can ask a compiled binary what it contains. The C# one is here because THIS LIBRARY IS ALSO PUBLISHED AS A NUGET PACKAGE: a package is restored when the generated project builds, long after signalcraft build has had to type-check the design, so the toolchain cannot load it either. A library shipping C# blocks only as source, imported from this repository, needs no entry for them - the source is compiled and read.",
 
   "categories": [
-    "filters"
+    "filters",
+    "level"
   ],
 
   "blocks": [
+    {
+      "type": "Community.Squelch",
+      "origin": "managed",
+      "language": "csharp",
+      "category": "level",
+      "label": "Squelch",
+      "doc": "Passes audio through while it is loud enough, and mutes it when it is not.",
+      "runtime_name": "Squelch",
+      "constructibility": "default",
+      "needs_hardware": false,
+      "native_emittable": true,
+
+      "ctor_fields": [],
+
+      "ports": {
+        "shape": "fixed",
+        "inputs": [
+          { "id": "in", "label": "In", "type": "Float32", "index": 0 }
+        ],
+        "outputs": [
+          { "id": "out", "label": "Out", "type": "Float32", "index": 0 }
+        ]
+      },
+
+      "params": [
+        {
+          "id": "threshold",
+          "label": "Threshold",
+          "type": "double",
+          "access": "readwrite",
+          "min": 0.0,
+          "max": 1.0
+        },
+        {
+          "id": "hold",
+          "label": "Hold (samples)",
+          "type": "double",
+          "access": "readwrite",
+          "min": 0.0,
+          "max": 48000.0
+        }
+      ]
+    },
     {
       "type": "CommunityNotch",
       "origin": "native",

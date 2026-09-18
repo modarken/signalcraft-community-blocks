@@ -4,7 +4,29 @@
   "description": "Community blocks for SignalCraft: a notch filter. Also importable as a repository or a NuGet package - use one, not two.",
   "homepage": "https://github.com/modarken/signalcraft-community-blocks",
   "license": "MIT",
+
   "dependencies": [
-    "signalcraft"
+    { "name": "vcpkg-cmake", "host": true },
+    { "name": "vcpkg-cmake-config", "host": true }
+  ],
+
+  "$comment-dependencies": [
+    "SignalCraft IS required - these blocks derive from core::IBlock and will not",
+    "compile without its headers - but it is NOT listed here, and that is",
+    "deliberate rather than an oversight.",
+    "",
+    "vcpkg's dependency list is what vcpkg must INSTALL FIRST, and SignalCraft is",
+    "not a vcpkg port. Listing it makes this port permanently uninstallable:",
+    "`vcpkg install` stops with `signalcraft does not exist` and never gets as far",
+    "as downloading anything. That was tried; it is the error you get.",
+    "",
+    "Where the requirement IS stated is the CMake config this port installs, which",
+    "does find_dependency(SignalCraft CONFIG). A consumer without SignalCraft gets",
+    "a clear refusal at configure time, which is the right moment - and anyone",
+    "consuming this is building a SignalCraft program, so they already have it on",
+    "CMAKE_PREFIX_PATH.",
+    "",
+    "When SignalCraft ships as a vcpkg port, this gains a real dependencies list",
+    "and the comment goes."
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "name": "signalcraft-community-blocks",
+  "version": "1.0.0",
+  "description": "Community blocks for SignalCraft: a notch filter. Also importable as a repository or a NuGet package - use one, not two.",
+  "homepage": "https://github.com/modarken/signalcraft-community-blocks",
+  "license": "MIT",
+  "dependencies": [
+    "signalcraft"
+  ]
+}

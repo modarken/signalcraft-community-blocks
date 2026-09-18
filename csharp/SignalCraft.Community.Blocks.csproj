@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- =====================================================================
+       The NuGet half of this library.
+
+       It compiles the SAME .cs files as ../blocks/ - linked, not copied, so
+       there is one copy of each block in this repository and the two routes
+       cannot drift apart. Somebody importing this repository directly gets the
+       source; somebody taking the NuGet package gets this compiled.
+
+       `dotnet pack -c Release` writes the .nupkg. To try it without publishing
+       anywhere, pack into a folder and add that folder as a package source -
+       NuGet treats a local directory like any other feed.
+       ===================================================================== -->
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>SignalCraft.Community.Blocks</AssemblyName>
+    <RootNamespace>Community</RootNamespace>
+
+    <PackageId>SignalCraft.Community.Blocks</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>modarken</Authors>
+    <Description>Community blocks for SignalCraft: a squelch and a notch filter. Also importable as a repository or a vcpkg port - use one, not two.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/modarken/signalcraft-community-blocks</RepositoryUrl>
+
+    <!-- Generated-adjacent code is not held to this repository's style rules;
+         the blocks are written to be READ as examples rather than to satisfy
+         an analyser. -->
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ONE COPY OF EACH BLOCK, linked rather than duplicated. A second copy
+         under csharp/ would be the same block twice in one repository, and the
+         two would disagree the first time somebody edited one of them. -->
+    <Compile Include="../blocks/**/*.cs" LinkBase="Blocks" />
+    <None Include="../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- A block derives from BlockBase and implements IHostedBlock, both from
+         the SignalCraft SDK. Version it against the SDK you built for. -->
+    <PackageReference Include="SignalCraft.Hosting" Version="[0.1.0]" />
+  </ItemGroup>
+
+</Project>

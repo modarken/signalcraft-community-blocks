@@ -1,0 +1,11 @@
+@PACKAGE_INIT@
+
+# The engine tier, for core::IBlock. A consumer nearly always has it already -
+# they are building a SignalCraft program - but a package that does not say what
+# it needs leaves them a link error instead of a message.
+include(CMakeFindDependencyMacro)
+find_dependency(SignalCraft CONFIG)
+
+include("${CMAKE_CURRENT_LIST_DIR}/signalcraft-community-blocks-targets.cmake")
+
+check_required_components(signalcraft-community-blocks)

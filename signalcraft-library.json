@@ -1,0 +1,11 @@
+{
+  "id": "community-blocks",
+  "version": "1.0.0",
+  "name": "SignalCraft community blocks",
+  "author": "modarken",
+
+  "also": {
+    "nuget": "SignalCraft.Community.Blocks",
+    "vcpkg": "signalcraft-community-blocks"
+  }
+}

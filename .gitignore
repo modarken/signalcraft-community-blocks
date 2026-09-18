@@ -1,0 +1,8 @@
+# Build output
+bin/
+obj/
+build/
+*.nupkg
+
+# Dear ImGui layout, if a studio is ever run from here
+imgui.ini

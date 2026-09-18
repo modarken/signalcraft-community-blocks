@@ -10,11 +10,17 @@
 # anywhere on CMAKE_PREFIX_PATH. That is worth knowing: it means the consuming
 # side can be tested without vcpkg, and it is.
 
+# The hash is of the release tarball GitHub serves for the tag, and it can only
+# be known once that tag exists. vcpkg checks it on every install: a port whose
+# source changed under it is refused rather than built, which is the point.
+#
+# When the version moves, this moves with it. `vcpkg install` with a wrong hash
+# prints the one it actually got, so there is no guessing involved.
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO modarken/signalcraft-community-blocks
     REF "v${VERSION}"
-    SHA512 0
+    SHA512 bccade862b528e783e90f1aea8dc3f2e01d6123698e2cea85565545cbcfa0abb2583f6d8d35074cd4290693c191a4e4aa0742c61ae0ddf93c407e334900ce557
     HEAD_REF main
 )
 

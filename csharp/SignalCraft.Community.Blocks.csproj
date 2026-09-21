@@ -21,9 +21,9 @@
     <RootNamespace>Community</RootNamespace>
 
     <PackageId>SignalCraft.Community.Blocks</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>modarken</Authors>
-    <Description>Community blocks for SignalCraft: a squelch and a notch filter. Also importable as a repository or a vcpkg port - use one, not two.</Description>
+    <Description>Community blocks for SignalCraft: an RDS decoder, a squelch and a notch filter. Also importable as a repository or a vcpkg port - use one, not two.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/modarken/signalcraft-community-blocks</RepositoryUrl>
@@ -65,7 +65,7 @@
   <ItemGroup>
     <!-- A block derives from BlockBase and implements IHostedBlock, both from
          the SignalCraft SDK. Version it against the SDK you built for. -->
-    <PackageReference Include="SignalCraft.Hosting" Version="[0.1.0]" />
+    <PackageReference Include="SignalCraft.Hosting" Version="[0.3.0]" />
   </ItemGroup>
 
 </Project>

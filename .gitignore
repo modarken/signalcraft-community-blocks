@@ -6,3 +6,9 @@ build/
 
 # Dear ImGui layout, if a studio is ever run from here
 imgui.ini
+
+# The local SignalCraft package feed (NuGet.config explains why it is here).
+# The FOLDER is tracked via its .gitkeep, because NuGet errors on a source
+# that does not exist; what eng/sync-sdk.ps1 puts in it is not.
+artifacts/nuget/*
+!artifacts/nuget/.gitkeep

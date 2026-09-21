@@ -5,10 +5,55 @@
 
   "categories": [
     "filters",
-    "level"
+    "level",
+    "modulation"
   ],
 
   "blocks": [
+    {
+      "type": "Community.Rds",
+      "origin": "managed",
+      "language": "csharp",
+      "category": "modulation",
+      "label": "RDS",
+      "doc": "Decodes the RDS subcarrier out of an FM multiplex: station name, programme type and radio text. Feed it the MPX, before de-emphasis, so 57 kHz is still there. Set mpx_rate to match.",
+      "runtime_name": "Rds",
+      "constructibility": "default",
+      "needs_hardware": false,
+      "native_emittable": false,
+      "native_emit_note": "a C# block; `--emit cpp` cannot write it and `--emit csharp` names it",
+
+      "ctor_fields": [],
+
+      "ports": {
+        "shape": "fixed",
+        "inputs": [
+          { "id": "in", "label": "MPX", "type": "Float32", "index": 0 }
+        ],
+        "outputs": [
+          { "id": "symbols", "label": "Symbols", "type": "Complex32", "index": 0 }
+        ]
+      },
+
+      "params": [
+        { "id": "pi", "label": "PI code", "type": "string", "access": "readonly" },
+        { "id": "ps", "label": "Station name", "type": "string", "access": "readonly" },
+        { "id": "rt", "label": "Radio text", "type": "string", "access": "readonly" },
+        { "id": "pty", "label": "Programme type", "type": "string", "access": "readonly" },
+
+        { "id": "groups", "label": "Groups decoded", "type": "double", "access": "readonly", "min": 0.0, "max": 1000000000.0 },
+        { "id": "errors", "label": "Block errors", "type": "double", "access": "readonly", "min": 0.0, "max": 1000000000.0 },
+
+        { "id": "level", "label": "Subcarrier level", "type": "double", "access": "readonly", "min": 0.0, "max": 1.0 },
+        { "id": "symbol_rate", "label": "Recovered symbol rate", "type": "double", "access": "readonly", "min": 0.0, "max": 2000.0 },
+        { "id": "lock", "label": "Carrier lock", "type": "double", "access": "readonly", "min": -2.0, "max": 2.0 },
+        { "id": "flips", "label": "Lock-point flips", "type": "double", "access": "readonly", "min": 0.0, "max": 1000000000.0 },
+
+        { "id": "mpx_rate", "label": "MPX sample rate", "type": "double", "access": "readwrite", "min": 130000.0, "max": 10000000.0 },
+        { "id": "costas_bandwidth", "label": "Costas loop bandwidth", "type": "double", "access": "readwrite", "min": 0.0, "max": 1.0 },
+        { "id": "timing_bandwidth", "label": "Timing loop bandwidth", "type": "double", "access": "readwrite", "min": 0.0, "max": 1.0 }
+      ]
+    },
     {
       "type": "Community.Squelch",
       "origin": "managed",

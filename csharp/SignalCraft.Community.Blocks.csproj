@@ -14,14 +14,14 @@
        ===================================================================== -->
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net11.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>SignalCraft.Community.Blocks</AssemblyName>
     <RootNamespace>Community</RootNamespace>
 
     <PackageId>SignalCraft.Community.Blocks</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Authors>modarken</Authors>
     <Description>Community blocks for SignalCraft: an RDS decoder, a squelch and a notch filter. Also importable as a repository or a vcpkg port - use one, not two.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -65,7 +65,7 @@
   <ItemGroup>
     <!-- A block derives from BlockBase and implements IHostedBlock, both from
          the SignalCraft SDK. Version it against the SDK you built for. -->
-    <PackageReference Include="SignalCraft.Hosting" Version="[0.3.0]" />
+    <PackageReference Include="SignalCraft.Hosting" Version="[0.7.41]" />
   </ItemGroup>
 
 </Project>

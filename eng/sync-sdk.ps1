@@ -34,7 +34,7 @@
 [CmdletBinding()]
 param(
     [string]$SignalCraftRepo = '',
-    [string]$Version = '0.3.0'
+    [string]$Version = '0.7.41'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -75,6 +75,7 @@ if (-not (Test-Path $SignalCraftRepo)) {
 # keeps its copy. Either will do; the file is the same file.
 $candidates = @(
     (Join-Path $SignalCraftRepo 'artifacts\sdk\nuget'),
+    (Join-Path $SignalCraftRepo 'artifacts\app\nuget'),
     (Join-Path $SignalCraftRepo 'artifacts\nuget')
 )
 

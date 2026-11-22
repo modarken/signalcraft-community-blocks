@@ -11,14 +11,14 @@
 # this through vcpkg says:
 #
 #   { "name": "signalcraft-community-blocks", "kind": "vcpkg",
-#     "version": "1.1.1", "target": "signalcraft-community-blocks::blocks" }
+#     "version": "1.1.2", "target": "signalcraft-community-blocks::blocks" }
 #
 # vcpkg is only the delivery mechanism. What SignalCraft generates is plain
 # CMake, so this package can equally be installed anywhere on CMAKE_PREFIX_PATH
 # and consumed with no vcpkg involved at all - which is also how it is tested.
 
 cmake_minimum_required(VERSION 3.24)
-project(signalcraft-community-blocks VERSION 1.1.1 LANGUAGES CXX)
+project(signalcraft-community-blocks VERSION 1.1.2 LANGUAGES CXX)
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)

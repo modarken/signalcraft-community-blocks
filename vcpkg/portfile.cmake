@@ -20,7 +20,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO modarken/signalcraft-community-blocks
     REF "v${VERSION}"
-    SHA512 decc1e8836c4a3164bd72498075d7e9faeefd6b8254f97f67b1eedff74674e8771969f68ef91724b2366d5a1c876e502f3b73c68540377cb1958c06bd3c4fdff
+    SHA512 0b13e84b1683758aca3aa0ff29ec3e7bc0868cb00afbe3f42dff141eee70b58a6857a0b9af9192bf01ffac88d369c002563fe12e1f75de6e49893ed5531d0940
     HEAD_REF main
 )
 

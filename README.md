@@ -57,7 +57,7 @@ Two files, and neither is large.
 ```json
 {
   "id": "community-blocks",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "name": "SignalCraft community blocks",
   "also": {
     "nuget": "SignalCraft.Community.Blocks",

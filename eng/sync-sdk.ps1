@@ -34,7 +34,7 @@
 [CmdletBinding()]
 param(
     [string]$SignalCraftRepo = '',
-    [string]$Version = '0.7.43'
+    [string]$Version = '0.7.45'
 )
 
 $ErrorActionPreference = 'Stop'
